@@ -1,4 +1,5 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 function EventCard({
   id,
   title,
@@ -7,7 +8,8 @@ function EventCard({
   location,
   category,
   description,
-}){
+  onDelete,
+}) {
   return (
     <article className="event-card">
       <p className="event-category">
@@ -28,10 +30,20 @@ function EventCard({
           <strong>Location:</strong>{location}
         </p>
       </div>
-      <Link className="details-button" to={`/events/${id}`}>
-      View Details
-      </Link>
-
+      <div className="event-actions">
+        <Link className="details-button" to={`/events/${id}`}>
+          View Details
+        </Link>
+        <button
+          className="delete-button"
+          type="button"
+          onClick={function () {
+            onDelete(id);
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </article>
   );
 }

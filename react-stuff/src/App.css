@@ -269,6 +269,32 @@ textarea:focus-visible {
   text-transform: uppercase;
 }
 
+.search-filter-bar {
+  display: flex;
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.search-filter-bar input {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 8px 20px rgba(23, 34, 31, 0.06);
+  font: inherit;
+}
+
+.search-filter-bar input::placeholder {
+  color: var(--muted);
+}
+
+.search-filter-bar input:focus {
+  border-color: var(--green);
+  outline: 3px solid rgba(23, 107, 89, 0.14);
+}
+
 .event-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -349,6 +375,34 @@ textarea:focus-visible {
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.delete-button {
+  padding: 11px 14px;
+  border: 1px solid var(--coral);
+  border-radius: 3px;
+  color: var(--coral);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.delete-button:hover,
+.delete-button:focus-visible {
+  color: #fff;
+  background: var(--coral);
+  transform: translateY(-2px);
 }
 
 .details-button:hover,
