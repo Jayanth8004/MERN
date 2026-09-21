@@ -25,8 +25,8 @@ body {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 #root {
@@ -48,3 +48,4 @@ a {
 button {
   font: inherit;
 }
+

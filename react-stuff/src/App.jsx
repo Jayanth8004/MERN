@@ -1,32 +1,37 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import Hero from "./Components/Hero";
-import EventForm from "./Components/EventForm";
-import EventSection from "./Components/EventSection";
 import Footer from "./Components/footer";
+import HomePage from "./Pages/HomePage";
+import EventsPage from "./Pages/EventsPage";
+import AboutPage from "./Pages/AboutPage";
+import ContactPage from "./Pages/ContactPage";
 import { initialEvents } from "./data/events";
 
 function App() {
   const [events, setEvents] = useState(initialEvents);
 
   function handleAddEvent(newEvent) {
-    setEvents((prevEvents) => [...prevEvents, newEvent]);
+    setEvents((currentEvents) => [...currentEvents, newEvent]);
   }
 
   return (
     <div>
       <Navbar />
 
-      <main id="home">
-        <Hero
-          title="Discover What Is Happening on Campus"
-          description="Find workshops, sports activities, club meetings, and opportunities to connect with other students."
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage events={events} onAddEvent={handleAddEvent} />
+          }
         />
 
-        <EventForm onAddEvent={handleAddEvent} />
-        <EventSection events={events} />
-      </main>
+        <Route path="/events" element={<EventsPage events={events} />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
 
       <Footer />
     </div>
@@ -34,4 +39,3 @@ function App() {
 }
 
 export default App;
-
